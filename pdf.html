@@ -76,8 +76,8 @@
         }
     </style>
 </head>
+</head>
 <body class="bg-gradient-to-br from-dark-200 to-dark-100 text-gray-100 min-h-screen flex flex-col">
-    <!-- Mobile Navigation -->
     <nav class="md:hidden fixed top-0 left-0 w-full z-50 bg-dark-200 shadow-lg">
         <div class="flex justify-between items-center p-4">
             <h1 class="text-2xl font-bold neon-glow">SnapToolKit</h1>
@@ -138,6 +138,15 @@
                                 <i class="fas fa-file-alt text-yellow-400 mr-2"></i>
                                 Alat OCR
                             </div>
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                                Word ke PDF
+                            </div>
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-file-word text-blue-500 mr-2"></i>
+                                PDF ke Word
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="mt-4">
@@ -154,7 +163,7 @@
     <section id="features" class="py-16 bg-dark-200">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">Fitur</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                     <i class="fas fa-file-upload text-4xl text-primary mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">Pengunggah Berkas</h3>
@@ -170,9 +179,60 @@
                     <h3 class="text-xl font-semibold mb-2">Alat OCR</h3>
                     <p>Ekstrak teks dari gambar dengan teknologi OCR canggih kami.</p>
                 </div>
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Konverter Word ke PDF</h3>
+                    <p>Ubah dokumen Word Anda menjadi file PDF dengan cepat dan mudah.</p>
+                </div>
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-word text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Konverter PDF ke Word</h3>
+                    <p>Ubah file PDF Anda menjadi dokumen Word dengan cepat dan mudah.</p>
+                </div>
+                
             </div>
         </div>
     </section>
+
+    <!-- Word to PDF Feature Highlight -->
+    <section class="py-16 bg-dark-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Konverter Word ke PDF</h2>
+                    <p class="text-lg mb-6">Ubah dokumen Microsoft Word Anda menjadi file PDF yang kompatibel universal dengan mudah.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Konversi cepat dan akurat
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Pertahankan format dan tata letak asli
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Kompatibel dengan semua versi Word
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Hasil PDF berkualitas tinggi
+                        </li>
+                    </ul>
+                    <a href="#main" class="mt-6 inline-block py-3 px-6 bg-primary hover:bg-blue-600 rounded-full text-white transition duration-300 transform hover:scale-105">
+                        Coba Sekarang
+                    </a>
+                </div>
+                <!-- <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-75 rounded-lg transform rotate-6"></div>
+                        <img src="/api/placeholder/600/400" alt="Word to PDF Conversion" class="relative z-10 rounded-lg shadow-2xl">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Main Content -->
     <main id="main" class="flex-grow container mx-auto px-4 py-8">
@@ -185,6 +245,8 @@
                             <option value="upload">Pengunggah Berkas</option>
                             <option value="convert">Konverter Gambar HD</option>
                             <option value="ocr">Alat OCR</option>
+                            <option value="wordToPdf">Word ke PDF</option>
+                            <option value="pdfToWord">PDF ke Word</option>
                         </select>
                     </div>
                 </div>
@@ -218,6 +280,22 @@
                         <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-primary rounded-lg text-white flex items-center justify-center transition duration-300">
                             <i class="fas fa-file-alt mr-2"></i>
                             <span>Ekstrak Teks</span>
+                        </button>
+                    </div>
+
+                    <div id="wordToPdfSection" class="space-y-4 hidden">
+                        <input type="url" id="wordFileUrl" name="wordFileUrl" placeholder="Masukkan URL file Word (.docx)" class="w-full p-3 bg-dark-300 text-gray-100 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"/>
+                        <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-primary rounded-lg text-white flex items-center justify-center transition duration-300">
+                            <i class="fas fa-file-pdf mr-2"></i>
+                            <span>Konversi ke PDF</span>
+                        </button>
+                    </div>
+
+                    <div id="pdfToWordSection" class="space-y-4 hidden">
+                        <input type="url" id="pdfFileUrl" name="pdfFileUrl" placeholder="Masukkan URL file PDF" class="w-full p-3 bg-dark-300 text-gray-100 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"/>
+                        <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-primary rounded-lg text-white flex items-center justify-center transition duration-300">
+                            <i class="fas fa-file-word mr-2"></i>
+                            <span>Konversi ke Word</span>
                         </button>
                     </div>
                 </form>
@@ -274,54 +352,86 @@
     </p>
 </div>
 </div>
-</div>
-</div>
-</div>
-</main>
 
-<div id="loadingAnimation" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
-<div class="loading-wave">
-<div class="loading-bar"></div>
-<div class="loading-bar"></div>
-<div class="loading-bar"></div>
-<div class="loading-bar"></div>
-</div>
-</div>
+                    <div id="wordToPdfAccordion" class="bg-dark-300 rounded-lg overflow-hidden hidden">
+                        <button class="accordion w-full bg-dark-400 hover:bg-dark-300 text-gray-100 font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-between items-center">
+                            <span><i class="fas fa-question-circle mr-2"></i> Cara Menggunakan Konverter Word ke PDF</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="panel bg-dark-300 rounded-lg mt-2 overflow-hidden transition-all duration-300 max-h-0">
+                            <p class="text-sm text-gray-300 leading-relaxed p-4">
+                                1. Pilih "Word ke PDF" dari menu dropdown.<br>
+                                2. Masukkan URL file Word (.docx) yang ingin Anda konversi.<br>
+                                3. Klik "Konversi ke PDF" untuk memulai proses konversi.<br>
+                                4. Setelah konversi selesai, Anda akan melihat tautan untuk mengunduh file PDF.<br>
+                                5. Klik tautan tersebut untuk mengunduh file PDF hasil konversi.
+                            </p>
+                        </div>
+                    </div>
 
-<!-- CS Floating Button -->
-<div class="fixed bottom-4 right-4 z-50">
-<input type="file" id="csImageInput" accept="image/*" class="hidden" />
-<label for="csImageInput" class="block w-16 h-16 rounded-full bg-primary hover:bg-blue-600 cursor-pointer overflow-hidden shadow-lg transition-transform hover:scale-110">
-<img id="csImage" src="help-desk.png" alt="CS" class="w-full h-full object-cover" />
-</label>
-<div class="mt-2 text-center">
-<a href="https://wa.link/idoaqc" target="_blank" class="text-sm bg-secondary hover:bg-green-600 text-white py-1 px-3 rounded-full shadow-md transition-colors duration-300">
-Butuh bantuan?
-</a>
-</div>
-</div>
+                    <div id="pdfToWordAccordion" class="bg-dark-300 rounded-lg overflow-hidden hidden">
+                        <button class="accordion w-full bg-dark-400 hover:bg-dark-300 text-gray-100 font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-between items-center">
+                            <span><i class="fas fa-question-circle mr-2"></i> Cara Menggunakan Konverter PDF ke Word</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="panel bg-dark-300 rounded-lg mt-2 overflow-hidden transition-all duration-300 max-h-0">
+                            <p class="text-sm text-gray-300 leading-relaxed p-4">
+                                1. Pilih "PDF ke Word" dari menu dropdown.<br>
+                                2. Masukkan URL file PDF yang ingin Anda konversi.<br>
+                                3. Klik "Konversi ke Word" untuk memulai proses konversi.<br>
+                                4. Setelah konversi selesai, Anda akan melihat tautan untuk mengunduh file Word.<br>
+                                5. Klik tautan tersebut untuk mengunduh file Word hasil konversi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<footer class="bg-dark-200 mt-8 glassmorphism">
-<div class="container mx-auto px-4 py-6 text-center text-gray-400">
-<p class="mb-4">&copy; 2024 SnapToolKit 2.0. Hak Cipta Dilindungi Undang-Undang.</p>
-<div class="mt-2 space-x-2 sm:space-x-4 text-sm sm:text-base">
-<a href="#" class="text-gray-400 hover:text-primary transition duration-300">Kebijakan Privasi</a>
-<a href="#" class="text-gray-400 hover:text-primary transition duration-300">Syarat Layanan</a>
-</div>
-<div class="mt-4 flex justify-center space-x-4">
-<a href="https://www.instagram.com/beginneer.noob/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition duration-300">
-<i class="fab fa-instagram text-2xl"></i>
-</a>
-<a href="https://github.com/Beginneernoob" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition duration-300">
-<i class="fab fa-github text-2xl"></i>
-</a>
-</div>
-</div>
-</footer>
+    <div id="loadingAnimation" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="loading-wave">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        </div>
+        </div>
+        
+        <!-- CS Floating Button -->
+        <div class="fixed bottom-4 right-4 z-50">
+        <input type="file" id="csImageInput" accept="image/*" class="hidden" />
+        <label for="csImageInput" class="block w-16 h-16 rounded-full bg-primary hover:bg-blue-600 cursor-pointer overflow-hidden shadow-lg transition-transform hover:scale-110">
+        <img id="csImage" src="help-desk.png" alt="CS" class="w-full h-full object-cover" />
+        </label>
+        <div class="mt-2 text-center">
+        <a href="https://wa.link/idoaqc" target="_blank" class="text-sm bg-secondary hover:bg-green-600 text-white py-1 px-3 rounded-full shadow-md transition-colors duration-300">
+        Butuh bantuan?
+        </a>
+        </div>
+        </div>
+        
+        <footer class="bg-dark-200 mt-8 glassmorphism">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-400">
+        <p class="mb-4">&copy; 2024 SnapToolKit 2.0. Hak Cipta Dilindungi Undang-Undang.</p>
+        <div class="mt-2 space-x-2 sm:space-x-4 text-sm sm:text-base">
+        <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Kebijakan Privasi</a>
+        <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Syarat Layanan</a>
+        </div>
+        <div class="mt-4 flex justify-center space-x-4">
+        <a href="https://www.instagram.com/beginneer.noob/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition duration-300">
+        <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://github.com/Beginneernoob" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition duration-300">
+        <i class="fab fa-github text-2xl"></i>
+        </a>
+        </div>
+        </div>
+        </footer>
 
-<script>
-// Fungsi menu mobile
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -358,37 +468,51 @@ behavior: 'smooth'
 });
 });
 
-const actionSelect = document.getElementById('actionSelect');
-const uploaderSection = document.getElementById('uploaderSection');
-const convertSection = document.getElementById('convertSection');
-const ocrSection = document.getElementById('ocrSection');
-const uploadForm = document.getElementById('uploadForm');
-const fileInput = document.getElementById('fileInput');
-const imageUrl = document.getElementById('imageUrl');
-const ocrUrl = document.getElementById('ocrUrl');
-const resultDiv = document.getElementById('result');
-const uploaderAccordion = document.getElementById('uploaderAccordion');
-const convertAccordion = document.getElementById('convertAccordion');
-const ocrAccordion = document.getElementById('ocrAccordion');
-const loadingAnimation = document.getElementById('loadingAnimation');
+        const actionSelect = document.getElementById('actionSelect');
+        const uploaderSection = document.getElementById('uploaderSection');
+        const convertSection = document.getElementById('convertSection');
+        const ocrSection = document.getElementById('ocrSection');
+        const wordToPdfSection = document.getElementById('wordToPdfSection');
+        const pdfToWordSection = document.getElementById('pdfToWordSection');
 
-actionSelect.addEventListener('change', () => {
-[uploaderSection, convertSection, ocrSection].forEach(section => section.classList.add('hidden'));
-[uploaderAccordion, convertAccordion, ocrAccordion].forEach(accordion => accordion.classList.add('hidden'));
+        const uploadForm = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('fileInput');
+        const imageUrl = document.getElementById('imageUrl');
+        const ocrUrl = document.getElementById('ocrUrl');
+        const wordFileUrl = document.getElementById('wordFileUrl');
+        const pdfFileUrl = document.getElementById('pdfFileUrl');
+        const resultDiv = document.getElementById('result');
 
-if (actionSelect.value === 'upload') {
-uploaderSection.classList.remove('hidden');
-uploaderAccordion.classList.remove('hidden');
-} else if (actionSelect.value === 'convert') {
-convertSection.classList.remove('hidden');
-convertAccordion.classList.remove('hidden');
-} else if (actionSelect.value === 'ocr') {
-ocrSection.classList.remove('hidden');
-ocrAccordion.classList.remove('hidden');
-}
-});
+        const uploaderAccordion = document.getElementById('uploaderAccordion');
+        const convertAccordion = document.getElementById('convertAccordion');
+        const ocrAccordion = document.getElementById('ocrAccordion');
+        const wordToPdfAccordion = document.getElementById('wordToPdfAccordion');
+        const pdfToWordAccordion = document.getElementById('pdfToWordAccordion');
+        const loadingAnimation = document.getElementById('loadingAnimation');
 
-function showLoading() {
+        actionSelect.addEventListener('change', () => {
+            [uploaderSection, convertSection, ocrSection, wordToPdfSection, pdfToWordSection].forEach(section => section.classList.add('hidden'));
+            [uploaderAccordion, convertAccordion, ocrAccordion, wordToPdfAccordion, pdfToWordAccordion].forEach(accordion => accordion.classList.add('hidden'));
+
+            if (actionSelect.value === 'upload') {
+                uploaderSection.classList.remove('hidden');
+                uploaderAccordion.classList.remove('hidden');
+            } else if (actionSelect.value === 'convert') {
+                convertSection.classList.remove('hidden');
+                convertAccordion.classList.remove('hidden');
+            } else if (actionSelect.value === 'ocr') {
+                ocrSection.classList.remove('hidden');
+                ocrAccordion.classList.remove('hidden');
+            } else if (actionSelect.value === 'wordToPdf') {
+                wordToPdfSection.classList.remove('hidden');
+                wordToPdfAccordion.classList.remove('hidden');
+            } else if (actionSelect.value === 'pdfToWord') {
+                pdfToWordSection.classList.remove('hidden');
+                pdfToWordAccordion.classList.remove('hidden');
+            }
+        });
+
+        function showLoading() {
 loadingAnimation.classList.remove('hidden');
 }
 
@@ -396,14 +520,15 @@ function hideLoading() {
 loadingAnimation.classList.add('hidden');
 }
 
-uploadForm.addEventListener('submit', async (e) => {
-e.preventDefault();
-showLoading();
-resultDiv.innerHTML = '';
-resultDiv.classList.add('hidden');
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showLoading();
+            resultDiv.innerHTML = '';
+            resultDiv.classList.add('hidden');
 
-if (actionSelect.value === 'upload') {
-const formData = new FormData();
+            // ... (existing form submission code remains the same) ...
+            if (actionSelect.value === 'upload') {
+                const formData = new FormData();
 formData.append('file', fileInput.files[0]);
 
 try {
@@ -454,7 +579,7 @@ resultDiv.innerHTML = `<p class="text-red-400">Error: ${error.message}</p>`;
 hideLoading();
 resultDiv.classList.remove('hidden');
 }
-} else if (actionSelect.value === 'convert') {
+} else if (actionSelect.value === 'convert') { 
 try {
 const response = await fetch(`https://api.nyxs.pw/tools/hd?url=${encodeURIComponent(imageUrl.value)}`, {
 method: 'GET',
@@ -508,6 +633,81 @@ resultDiv.innerHTML = `<p class="text-red-400">Error: ${error.message}</p>`;
                         `;
                     } else {
                         resultDiv.innerHTML = `<p class="text-red-400">Error: ${result.message || 'Unknown error occurred'}</p>`;
+                    }
+                } catch (error) {
+                    resultDiv.innerHTML = `<p class="text-red-400">Error: ${error.message}</p>`;
+                } finally {
+                    hideLoading();
+                    resultDiv.classList.remove('hidden');
+                }
+
+            } else if (actionSelect.value === 'wordToPdf') {
+                try {
+                    const response = await fetch(`https://api.nyxs.pw/converter/word-to-pdf?url=${encodeURIComponent(wordFileUrl.value)}`, {
+                        method: 'GET',
+                        headers: {
+                            'accept': 'application/json',
+                        },
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.status === "true") {
+                        resultDiv.innerHTML = `
+                            <p class="mb-4 font-bold text-lg">File Word berhasil dikonversi ke PDF!</p>
+                            <div class="bg-dark-400 p-4 rounded-lg">
+                                <p class="font-semibold mb-2">URL File PDF:</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="${result.result}" target="_blank" class="text-blue-400 hover:underline text-sm break-all">${result.result}</a>
+                                    <button onclick="copyToClipboard('${result.result}')" class="ml-2 text-gray-300 hover:text-white transition-colors duration-300">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <a href="${result.result}" download class="mt-4 inline-block py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition duration-300">
+                                    <i class="fas fa-download mr-2"></i>Unduh File PDF
+                                </a>
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.innerHTML = `<p class="text-red-400">Error: ${result.message || 'Terjadi kesalahan yang tidak diketahui'}</p>`;
+                    }
+                } catch (error) {
+                    resultDiv.innerHTML = `<p class="text-red-400">Error: ${error.message}</p>`;
+                } finally {
+                    hideLoading();
+                    resultDiv.classList.remove('hidden');
+                }
+            }
+
+            else if (actionSelect.value === 'pdfToWord') {
+                try {
+                    const response = await fetch(`https://api.nyxs.pw/converter/pdf-to-word?url=${encodeURIComponent(pdfFileUrl.value)}`, {
+                        method: 'GET',
+                        headers: {
+                            'accept': 'application/json',
+                        },
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.status === "true") {
+                        resultDiv.innerHTML = `
+                            <p class="mb-4 font-bold text-lg">File PDF berhasil dikonversi ke Word!</p>
+                            <div class="bg-dark-400 p-4 rounded-lg">
+                                <p class="font-semibold mb-2">URL File Word:</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="${result.result}" target="_blank" class="text-blue-400 hover:underline text-sm break-all">${result.result}</a>
+                                    <button onclick="copyToClipboard('${result.result}')" class="ml-2 text-gray-300 hover:text-white transition-colors duration-300">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <a href="${result.result}" download class="mt-4 inline-block py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition duration-300">
+                                    <i class="fas fa-download mr-2"></i>Unduh File Word
+                                </a>
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.innerHTML = `<p class="text-red-400">Error: ${result.message || 'Terjadi kesalahan yang tidak diketahui'}</p>`;
                     }
                 } catch (error) {
                     resultDiv.innerHTML = `<p class="text-red-400">Error: ${error.message}</p>`;
