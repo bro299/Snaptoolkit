@@ -72,7 +72,168 @@
         </div>
     </section>
 
-    <!-- Other Sections -->
+    <!-- Mobile app mockup -->
+        <div class="mt-12 relative w-64 h-128 mx-auto">
+            <div class="absolute inset-0 bg-gray-800 rounded-3xl shadow-lg transform -rotate-6"></div>
+            <div class="absolute inset-0 bg-gray-700 rounded-3xl shadow-lg transform rotate-6"></div>
+            <div class="relative bg-dark-300 rounded-3xl shadow-lg p-4 h-full overflow-hidden">
+                <div class="bg-dark-200 rounded-2xl p-4 h-full flex flex-col">
+                    <div class="flex-1 overflow-y-auto">
+                        <h3 class="text-lg font-semibold mb-2">SnapToolKit Mobile</h3>
+                        <p class="text-sm text-gray-400 mb-4">Akses alat-alat canggih saat bepergian!</p>
+                         <div class="space-y-2">
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-image text-secondary mr-2"></i>
+                                Konverter HD
+                            </div>
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-file-alt text-yellow-400 mr-2"></i>
+                                Alat OCR
+                            </div>
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                                Word ke PDF
+                            </div>
+                            <div class="bg-dark-400 p-2 rounded-lg">
+                                <i class="fas fa-file-word text-blue-500 mr-2"></i>
+                                PDF ke Word
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="w-full py-2 px-4 bg-primary rounded-lg text-white">
+                            Buka Aplikasi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-dark-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Fitur</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-image text-4xl text-secondary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Konverter Gambar HD</h3>
+                    <p>Konversi gambar Anda menjadi kualitas definisi tinggi dengan satu klik.</p>
+                </div>
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-alt text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Alat OCR</h3>
+                    <p>Ekstrak teks dari gambar dengan teknologi OCR canggih kami.</p>
+                </div>
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Konverter Word ke PDF</h3>
+                    <p>Ubah dokumen Word Anda menjadi file PDF dengan cepat dan mudah.</p>
+                </div>
+                <div class="feature-card p-6 bg-dark-300 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-word text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Konverter PDF ke Word</h3>
+                    <p>Ubah file PDF Anda menjadi dokumen Word dengan cepat dan mudah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main" class="flex-grow container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-dark-200 rounded-xl shadow-2xl p-8 glassmorphism">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="col-span-1 md:col-span-3">
+                        <label for="actionSelect" class="block text-sm font-medium text-gray-300 mb-2">Pilih Tindakan</label>
+                        <select id="actionSelect" class="w-full p-3 bg-dark-300 text-gray-100 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300">
+                            <option value="convert">Konverter Gambar HD</option>
+                            <option value="ocr">Alat OCR</option>
+                            <option value="wordToPdf">Word ke PDF</option>
+                            <option value="pdfToWord">PDF ke Word</option>
+                        </select>
+                    </div>
+                </div>
+
+                <form id="uploadForm" class="space-y-6">
+                    <div id="uploaderSection" class="space-y-4">
+                        <div id="ocrOptions" class="flex justify-center space-x-4 mb-4">
+                            <button type="button" id="chooseFileBtn" class="py-2 px-4 bg-primary hover:bg-blue-600 rounded-lg text-white transition duration-300">
+                                <i class="fas fa-file-upload mr-2"></i>Pilih File
+                            </button>
+                            <button type="button" id="capturePhotoBtn" class="py-2 px-4 bg-secondary hover:bg-green-600 rounded-lg text-white transition duration-300">
+                                <i class="fas fa-camera mr-2"></i>Ambil Foto
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-center w-full">
+                            <label for="fileInput" id="fileInputLabel" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-dark-300 hover:bg-dark-400 transition-all duration-300">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
+                                    <p class="mb-2 text-sm text-gray-400"><span class="font-bold">Klik untuk mengunggah</span> atau seret dan lepas</p>
+                                    <p class="text-xs text-gray-400">PNG, JPG, GIF, PDF, atau DOCX</p>
+                                </div>
+                                <input id="fileInput" type="file" class="hidden" accept="image/*,application/pdf,.docx" />
+                            </label>
+                        </div>
+                        <video id="cameraPreview" class="w-full h-64 object-cover rounded-lg hidden"></video>
+                        <canvas id="captureCanvas" class="hidden"></canvas>
+                        <div id="captureControls" class="flex justify-between items-center mt-4 hidden">
+                            <button id="retakeButton" type="button" class="py-2 px-4 bg-gray-600 hover:bg-gray-700 rounded-lg text-white transition duration-300">
+                                <i class="fas fa-redo mr-2"></i>Ambil Ulang
+                            </button>
+                            <button id="uploadCapturedImage" type="button" class="py-2 px-4 bg-primary hover:bg-blue-600 rounded-lg text-white transition duration-300">
+                                <i class="fas fa-upload mr-2"></i>Unggah Foto
+                            </button>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-primary rounded-lg text-white flex items-center justify-center transition duration-300">
+                            <i class="fas fa-upload mr-2"></i>
+                            <span>Unggah dan Proses</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="result" class="mt-8 text-center p-6 bg-dark-300 rounded-lg hidden"></div>
+                <div class="mt-8 space-y-4">
+                    <div id="uploaderAccordion" class="bg-dark-300 rounded-lg overflow-hidden">
+                        <button class="accordion w-full bg-dark-400 hover:bg-dark-300 text-gray-100 font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-between items-center">
+                            <span><i class="fas fa-question-circle mr-2"></i> Cara Menggunakan</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="panel bg-dark-300 rounded-lg mt-2 overflow-hidden transition-all duration-300 max-h-0">
+                            <p class="text-sm text-gray-300 leading-relaxed p-4">
+                                1. Pilih "Sesuai Kebutuahn" dari menu dropdown.<br>
+                                2. Klik "Pilih Berkas" atau seret dan lepas sebuah gambar.<br>
+                                3. Klik tombol "Unggah" untuk memulai proses pengunggahan.<br>
+                                4. Hasil akan tampil setelah loading selesai.<br>
+                                5. Jika ada error dimohon untuk screenshot dan <br> 
+                                hubungi saya di wa saya di butuh bantuan.
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="loadingAnimation" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="loading-wave">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+        
+    <!-- CS Floating Button -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <input type="file" id="csImageInput" accept="image/*" class="hidden" />
+        <label for="csImageInput" class="block w-16 h-16 rounded-full bg-primary hover:bg-blue-600 cursor-pointer overflow-hidden shadow-lg transition-transform hover:scale-110">
+            <img id="csImage" src="help-desk.png" alt="CS" class="w-full h-full object-cover" />
+        </label>
+        <div class="mt-2 text-center">
+            <a href="https://wa.link/idoaqc" target="_blank" class="text-sm bg-secondary hover:bg-green-600 text-white py-1 px-3 rounded-full shadow-md transition-colors duration-300">
+                Butuh bantuan?
+            </a>
+        </div>
+    </div>
 
     <footer class="bg-dark-200 mt-8 glassmorphism">
         <div class="container mx-auto px-4 py-6 text-center text-gray-400">
