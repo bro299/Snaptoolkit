@@ -7,8 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <!-- External CSS -->
-    <link href="https://css-snap.vercel.app/snap.css" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -31,6 +29,52 @@
             }
         }
     </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .loading-wave {
+                @apply flex justify-center items-end h-24 space-x-1;
+            }
+            .loading-bar {
+                @apply w-4 h-3 bg-primary rounded-t-md;
+                animation: loading-wave-animation 1s ease-in-out infinite;
+            }
+            .loading-bar:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+            .loading-bar:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+            .loading-bar:nth-child(4) {
+                animation-delay: 0.3s;
+            }
+            @keyframes loading-wave-animation {
+                0% {
+                    @apply h-3;
+                }
+                50% {
+                    @apply h-16;
+                }
+                100% {
+                    @apply h-3;
+                }
+            }
+            .result-text {
+                @apply break-words whitespace-pre-wrap text-sm text-gray-300 bg-dark-300 p-4 rounded-lg mt-2 max-h-60 overflow-y-auto;
+            }
+            .result-image {
+                @apply w-full h-auto max-h-96 object-contain mt-4 rounded-lg shadow-md;
+            }
+            .glassmorphism {
+                @apply bg-opacity-90 md:bg-opacity-20 md:backdrop-filter md:backdrop-blur-lg;
+            }
+            .neon-glow {
+                text-shadow: 0 0 5px #3B82F6, 0 0 10px #3B82F6, 0 0 15px #3B82F6, 0 0 20px #3B82F6;
+            }
+            .mobile-menu-active {
+                @apply translate-x-0;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gradient-to-br from-dark-200 to-dark-100 text-gray-100 min-h-screen flex flex-col">
     <nav class="md:hidden fixed top-0 left-0 w-full z-50 bg-dark-200 shadow-lg">
@@ -60,7 +104,7 @@
     <section id="landing" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-16 md:pt-0">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 neon-glow">SnapToolKit 2.0</h1>
-            <p class="text-lg md:text-xl mb-8">Tingkatkan, Konversi, dan Ekstrak dengan Mudah</p>
+            <p class="text-lg md:text-xl mb-8">Tingkatkan, Konversi, dan  Ekstrak  dengan Mudah</p>
             <div class="space-y-4 md:space-y-0 md:space-x-4">
                 <a href="#main" class="inline-block py-3 px-6 bg-primary hover:bg-blue-600 rounded-full text-white transition duration-300 transform hover:scale-105 w-full md:w-auto">
                     Mulai
@@ -70,9 +114,8 @@
                 </a>
             </div>
         </div>
-    </section>
-
-    <!-- Mobile app mockup -->
+        
+        <!-- Mobile app mockup -->
         <div class="mt-12 relative w-64 h-128 mx-auto">
             <div class="absolute inset-0 bg-gray-800 rounded-3xl shadow-lg transform -rotate-6"></div>
             <div class="absolute inset-0 bg-gray-700 rounded-3xl shadow-lg transform rotate-6"></div>
@@ -234,7 +277,7 @@
             </a>
         </div>
     </div>
-
+        
     <footer class="bg-dark-200 mt-8 glassmorphism">
         <div class="container mx-auto px-4 py-6 text-center text-gray-400">
             <p class="mb-4">&copy; 2024 SnapToolKit 2.0. Hak Cipta Dilindungi Undang-Undang.</p>
